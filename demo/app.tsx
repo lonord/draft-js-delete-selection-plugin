@@ -1,9 +1,15 @@
 import 'normalize.css'
 
+import debug from 'debug'
 import { convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
 import * as React from 'react'
 import styled from 'styled-components'
+
+declare var process
+process.env.NODE_ENV !== 'production' && debug.enable('*')
+
+const d = debug('draft-js-delete-selection-plugin')
 
 import createDeleteTextPlugin from '../src/'
 
@@ -41,11 +47,23 @@ interface AppState {
 
 class App extends React.Component<any, AppState> {
 
+	selection: SelectionState
+
 	state: AppState = {
 		editorState: EditorState.createEmpty()
 	}
 
 	handleChange = (editorState: EditorState) => {
+		const sel = editorState.getSelection()
+		if (!this.selection || !(this.selection.getStartKey() === sel.getStartKey()
+			&& this.selection.getStartOffset() === sel.getStartOffset()
+			&& this.selection.getEndKey() === sel.getEndKey()
+			&& this.selection.getEndOffset() === sel.getEndOffset())) {
+			d('select changed -> start key: %s, start offset: %d, end key: %s, end offset: %d',
+				sel.getStartKey(), sel.getStartOffset(),
+				sel.getEndKey(), sel.getEndOffset())
+		}
+		this.selection = sel
 		this.setState({
 			editorState
 		})

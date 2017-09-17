@@ -16,10 +16,12 @@
   "author": "Loy B. <lonord@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/debug": "0.0.30",
     "@types/draft-js": "^0.10.12",
     "@types/react": "^16.0.5",
     "awesome-typescript-loader": "^3.2.3",
     "css-loader": "^0.28.7",
+    "debug": "^3.0.1",
     "draft-js": "^0.10.1",
     "draft-js-plugins-editor": "^2.0.0-beta1",
     "normalize.css": "^7.0.0",
