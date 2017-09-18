@@ -5,6 +5,14 @@ By this plugin, you can delete selected text by press `backspace`.
 
 ## Usage
 
+Install via npm:
+
+```bash
+$ npm i draft-js-delete-selection-plugin
+```
+
+And use in your project:
+
 ```js
 import createDeleteSelectionPlugin from 'draft-js-delete-selection-plugin';
 
