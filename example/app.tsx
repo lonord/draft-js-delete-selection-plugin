@@ -1,7 +1,7 @@
 import 'normalize.css'
 
 import debug from 'debug'
-import { convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
+import { ContentState, convertFromHTML, convertFromRaw, convertToRaw, EditorState, SelectionState } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 
 // tslint:disable-next-line:variable-name
 const Button = styled.button`
+	outline: none;
 	border: 1px solid #ddd;
     border-radius: 4px;
     padding: 2px 10px;
@@ -35,7 +36,7 @@ const Button = styled.button`
 	margin-top: 10px;
 
     &:hover {
-        opacity: 0.6;
+		opacity: 0.6;
     }
 `
 
@@ -50,7 +51,7 @@ class App extends React.Component<any, AppState> {
 	selection: SelectionState
 
 	state: AppState = {
-		editorState: EditorState.createEmpty()
+		editorState: createEditorState()
 	}
 
 	handleChange = (editorState: EditorState) => {
@@ -89,3 +90,15 @@ class App extends React.Component<any, AppState> {
 }
 
 export default App
+
+const HTML_CONTENT = '<b>Bold text</b>, <i>Italic text</i><br/ ><br />' +
+	'<a href="http://www.baidu.com">Example link</a>'
+
+function createEditorState() {
+	const blocksFromHTML = convertFromHTML(HTML_CONTENT)
+	const state = ContentState.createFromBlockArray(
+		blocksFromHTML.contentBlocks,
+		blocksFromHTML.entityMap
+	)
+	return EditorState.createWithContent(state)
+}

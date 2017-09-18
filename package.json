@@ -1,11 +1,11 @@
 {
   "name": "draft-js-delete-selection-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A plugin for draft-js-plugins-editor to delete selection content.",
   "main": "lib/",
   "types": "lib/",
   "scripts": {
-    "dev": "reeasy -w demo dev",
+    "dev": "reeasy -w example dev",
     "build": "rimraf lib && tsc -d",
     "prepublishOnly": "npm run build"
   },
@@ -15,6 +15,14 @@
   ],
   "author": "Loy B. <lonord@qq.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonord/draft-js-delete-selection-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lonord/draft-js-delete-selection-plugin/issues"
+  },
+  "homepage": "https://github.com/lonord/draft-js-delete-selection-plugin#readme",
   "devDependencies": {
     "@types/debug": "0.0.30",
     "@types/draft-js": "^0.10.12",

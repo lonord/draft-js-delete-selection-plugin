@@ -58,5 +58,5 @@ typings/
 .env
 
 .reeasy/
-demo/
-.src/
+example/
+src/
