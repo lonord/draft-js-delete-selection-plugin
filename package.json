@@ -1,6 +1,6 @@
 {
   "name": "draft-js-delete-selection-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A plugin for draft-js-plugins-editor to delete selection content.",
   "main": "lib/",
   "types": "lib/",
@@ -29,7 +29,6 @@
     "@types/react": "^16.0.5",
     "awesome-typescript-loader": "^3.2.3",
     "css-loader": "^0.28.7",
-    "debug": "^3.0.1",
     "draft-js": "^0.10.1",
     "draft-js-plugins-editor": "^2.0.0-beta1",
     "normalize.css": "^7.0.0",
@@ -42,5 +41,8 @@
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
     "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "debug": "^3.0.1"
   }
 }
