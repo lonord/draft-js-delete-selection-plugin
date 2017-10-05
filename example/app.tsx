@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import 'normalize.css'
 
 import debug from 'debug'
